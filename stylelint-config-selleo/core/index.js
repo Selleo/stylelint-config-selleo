@@ -1,4 +1,4 @@
-{
+module.exports = {
   "extends":[ "stylelint-config-recommended", "stylelint-config-recommended-scss"],
   "plugins": [
     "stylelint-declaration-strict-value",
@@ -12,11 +12,11 @@
       "margin",
       "padding"
     ],
-    {
-      "ignoreFunctions": {
-        "margin": false
-      }
-    }],
+      {
+        "ignoreFunctions": {
+          "margin": false
+        }
+      }],
     "number-leading-zero": "never",
     "number-max-precision": 2
   }

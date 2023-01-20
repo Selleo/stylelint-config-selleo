@@ -1,4 +1,4 @@
-{
+module.exports = {
   "overrides": [
     {
       "files": ["**/*.sass"],
