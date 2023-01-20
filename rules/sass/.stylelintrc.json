@@ -1,0 +1,8 @@
+{
+  "overrides": [
+    {
+      "files": ["**/*.sass"],
+      "customSyntax": "postcss-sass"
+    }
+  ]
+}
