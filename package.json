@@ -5,9 +5,9 @@
   "description": "",
   "main": "index.js",
   "exports": {
-    "./bem": "./stylelint-config-selleo/bem/index.js",
-    "./core": "./stylelint-config-selleo/core/index.js",
-    "./sass": "./stylelint-config-selleo/sass/index.js"
+    "./bem": "./stylelint-config-selleo/bem/.stylelintrc.json",
+    "./core": "./stylelint-config-selleo/core/.stylelintrc.json",
+    "./sass": "./stylelint-config-selleo/sass/.stylelintrc.json"
   },
   "keywords": [
     "stylelint-config",
@@ -26,7 +26,7 @@
     "url": "https://github.com/Selleo/stylelint-config-selleo/issues"
   },
   "homepage": "https://github.com/Selleo/stylelint-config-selleo#readme",
-  "dependencies": {
+  "devDependencies": {
     "stylelint-config-recommended": "9.0.0",
     "stylelint-config-recommended-scss": "8.0.0",
     "postcss-scss": "4.0.6",
