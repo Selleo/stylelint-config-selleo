@@ -52,6 +52,13 @@ Add following script to your `package.json` - it allows to automatically fix mos
 3. Search for `stylelint`.
 4. Inside `Stylelint: Snippet` and `Stylelint: Validate` add `scss` or `sass`.
 
+Autofix on save file. Open VSCode settings in the `json` format and paste following rule
+```json    
+  "editor.codeActionsOnSave": {
+		"source.fixAll.stylelint": true
+	},
+```
+
 ### JetBrains (RubyMine, WebStorm)
 1. Go to `Preferences > Languages & Frameworks > Style Sheets > Stylelint`. 
 2. Click Enable.
