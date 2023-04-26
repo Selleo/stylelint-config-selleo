@@ -30,6 +30,12 @@ Set your `stylelintrc.json` config to:
 }
 ```
 
+Create or update existing `.prettierignore` following rule - ignore prettier for css, sccs and sass files - use stylelint by default
+``` 
+**/*.css
+**/*.scss
+**/*.sass
+```
 
 ## IDE setup
 
