@@ -37,6 +37,13 @@ Create or update existing `.prettierignore` following rule - ignore prettier for
 **/*.sass
 ```
 
+Add following script to your `package.json` - it allows to automatically fix most of styling issues
+```json
+  "scripts": {
+    "stylelint": "stylelint **/*.{scss,css} --fix"
+  }
+```
+
 ## IDE setup
 
 ### VSCode
