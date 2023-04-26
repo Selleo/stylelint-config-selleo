@@ -27,12 +27,12 @@
   },
   "homepage": "https://github.com/Selleo/stylelint-config-selleo#readme",
   "dependencies": {
+    "postcss-sass": "0.5.0",
+    "postcss-scss": "4.0.6",
+    "stylelint-order": "^6.0.3",
+    "stylelint-scss": "4.3.0",
     "stylelint-config-recommended": "9.0.0",
     "stylelint-config-recommended-scss": "8.0.0",
-    "postcss-scss": "4.0.6",
-    "stylelint-scss": "4.3.0",
-    "stylelint-order": "6.0.1",
-    "stylelint-declaration-strict-value": "1.9.1",
-    "postcss-sass": "0.5.0"
+    "stylelint-declaration-strict-value": "1.9.1"
   }
 }
