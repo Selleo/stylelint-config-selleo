@@ -52,7 +52,9 @@ Add following script to your `package.json` - it allows to automatically fix mos
 3. Search for `stylelint`.
 4. Inside `Stylelint: Snippet` and `Stylelint: Validate` add `scss` or `sass`.
 
-Autofix on save file. Open VSCode settings in the `json` format and paste following rule
+Autofix on file save.
+1. Open VSCode settings in the `json` format
+2. Paste following rule at the end of file
 ```json    
   "editor.codeActionsOnSave": {
 		"source.fixAll.stylelint": true
@@ -63,6 +65,16 @@ Autofix on save file. Open VSCode settings in the `json` format and paste follow
 1. Go to `Preferences > Languages & Frameworks > Style Sheets > Stylelint`. 
 2. Click Enable.
 3. Inside Run for files enter `{**/*,*}.{css,scss,sass}` - without spaces between file extensions!
+
+Autofix on file save. 
+1. Open WebStorm `settings > Tools > File Watchers`
+2. `+/Add > <custom>`
+3. Provide watcher name ie `stylelint-auto-fix`
+4. Set `Program` to `$ProjectFileDir$/node_modules/stylelint/bin/stylelint.js`
+5. Set `Arguments` to `$FilePath$ --fix`
+6. Set `Working directory` to `$ProjectFileDir$`
+7. Open `Advanced Options` and letf only `Trigger the watcher on external changes` checked
+8. Save and Apply changes
 
 ### CLI / CI
 1. Add script to your package.json,
