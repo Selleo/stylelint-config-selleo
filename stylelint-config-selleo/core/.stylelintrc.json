@@ -5,6 +5,20 @@
     "stylelint-order"
   ],
   "rules": {
+    "order/order": [
+      [
+        "dollar-variables",
+        "custom-properties",
+        "at-rules",
+        "at-variables",
+        { "type": "rule", "selector": "\\w+:" },
+        "declarations",
+        { "type": "at-rule", "name": "media", "hasBlock": true },
+        { "type": "at-rule", "selector": "^@include.*\\bmedia\\b\n", "hasBlock": true },
+        "rules"
+      ],
+      { "severity": "warning" }
+    ],
     "order/properties-order": [
       "align-content",
       "align-items",
@@ -345,7 +359,11 @@
       "word-spacing",
       "word-wrap",
       "writing-mode",
-      "z-index"
+      "z-index",
+      {
+        "unspecified": "bottomAlphabetical",
+        "emptyLineBeforeUnspecified": "always"
+      }
     ],
     "scale-unlimited/declaration-strict-value": [[
       "background",
