@@ -15,7 +15,7 @@
     "selleo"
   ],
   "scripts": {
-    "": "stylelint **/*.{scss,css} --fix",
+    "lint-all": "stylelint **/*.{scss,css} --fix",
     "fix-current-changes": "git diff origin/master --name-only  --diff-filter=AM -- '*.scss' '*.css' | tail | xargs -r stylelint --fix --quiet"
   },
   "repository": {
