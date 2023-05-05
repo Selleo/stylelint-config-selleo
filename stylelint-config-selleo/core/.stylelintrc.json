@@ -5,20 +5,6 @@
     "stylelint-order"
   ],
   "rules": {
-    "order/order": [
-      [
-        "dollar-variables",
-        "custom-properties",
-        "at-rules",
-        "at-variables",
-        { "type": "rule", "selector": "\\w+:" },
-        "declarations",
-        { "type": "at-rule", "name": "media", "hasBlock": true },
-        { "type": "at-rule", "selector": "^@include.*\\bmedia\\b\n", "hasBlock": true },
-        "rules"
-      ],
-      { "severity": "warning" }
-    ],
     "order/properties-order": [
       "align-content",
       "align-items",
@@ -364,6 +350,21 @@
         "unspecified": "bottomAlphabetical",
         "emptyLineBeforeUnspecified": "always"
       }
+    ],
+    "order/order": [
+      [
+        "dollar-variables",
+        "custom-properties",
+        "at-rules",
+        "at-variables",
+        { "type": "rule", "selector": "\\w+:" },
+        "declarations",
+        { "type": "at-rule", "name": "media", "hasBlock": true, "emptyLineBefore": true },
+        { "type": "at-rule", "name": "include", "parameter": "\bmedia\b", "hasBlock": true, "emptyLineBefore": true },
+        { "type": "at-rule", "name": "include", "parameter": "\bhover\b", "hasBlock": true, "emptyLineBefore": true },
+        "rules"
+      ],
+      { "severity": "warning" }
     ],
     "scale-unlimited/declaration-strict-value": [[
       "background",
