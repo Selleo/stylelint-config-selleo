@@ -1,6 +1,14 @@
 import { Command } from "@oclif/core";
 import * as inquirer from "inquirer";
 import * as fs from "fs/promises";
+import { readFileSync } from "fs";
+
+type Script = {
+  name: string;
+  value: string;
+};
+
+type PackageJsonScripts = { scripts: { [key: string]: string } };
 
 const extentions = [
   { name: "BEM", value: "bem" },
@@ -8,20 +16,98 @@ const extentions = [
   { name: "SASS", value: "scss" },
 ];
 
+const fixScripts: Script[] = [
+  {
+    name: "fix-all",
+    value: "stylelint **/*.{scss,css} --fix",
+  },
+  {
+    name: "fix-current",
+    value:
+      "git diff origin/master --name-only  --diff-filter=AM -- '*.scss' '*.css' | tail | xargs -r stylelint --fix --quiet",
+  },
+];
+
 export class Init extends Command {
   static description = "Initialize the Stylelint Selleo Config";
 
   public async run(): Promise<void> {
-    const { selectedExtentions } = await (inquirer as any).prompt([
-      {
-        name: "selectedExtentions",
-        type: "checkbox",
-        message: "Select extensions",
-        choices: extentions.map(({ name }) => name),
-      },
+    const { selectedExtentions, fixAllScriptName, fixCurrentScriptName } =
+      await (inquirer as any).prompt([
+        {
+          name: "selectedExtentions",
+          type: "checkbox",
+          message: "Select extensions",
+          choices: extentions.map(({ name }) => name),
+        },
+        {
+          name: "fixAllScriptName",
+          type: "input",
+          default: fixScripts[0].name,
+          message: "Type script name that fixes all files",
+        },
+        {
+          name: "fixCurrentScriptName",
+          type: "input",
+          default: fixScripts[1].name,
+          message: "Type script name that fixes currently changed files",
+        },
+      ]);
+
+    PackageJsonLinterScripts.addScripts([
+      fixAllScriptName,
+      fixCurrentScriptName,
     ]);
 
     StylelintExtentions.create(selectedExtentions);
+  }
+}
+
+export class PackageJsonLinterScripts {
+  private readonly packageJsonFileString = "package.json";
+
+  static addScripts(scriptsNames: string[]) {
+    new PackageJsonLinterScripts(scriptsNames);
+  }
+
+  constructor(scriptsNames: string[]) {
+    this._handleScripts(scriptsNames);
+  }
+
+  private async _handleScripts(scriptsNames: string[]): Promise<void> {
+    const preparedScriptsData = this._prepareFixScriptsData(scriptsNames);
+    const packageJson = await this._readFile();
+    this._overwritePackageJsonScripts(preparedScriptsData, packageJson);
+    await this._saveFileChanges(JSON.stringify(packageJson, null, 2));
+  }
+
+  private _overwritePackageJsonScripts(
+    preparedScriptsData: Script[],
+    packageJson: PackageJsonScripts
+  ): void {
+    preparedScriptsData.forEach(({ name, value }) => {
+      packageJson.scripts[name] = value;
+    });
+  }
+
+  private _prepareFixScriptsData(scriptsNames: string[]): Script[] {
+    const preparedScriptsData = scriptsNames.map((scriptName, i) => {
+      if (fixScripts[i].name === scriptName) return fixScripts[i];
+      return { ...fixScripts[i], name: scriptName };
+    });
+
+    return preparedScriptsData;
+  }
+
+  private async _saveFileChanges(fileData: string): Promise<void> {
+    const filePath = `${process.cwd()}/${this.packageJsonFileString}`;
+    await fs.writeFile(filePath, fileData);
+  }
+
+  private async _readFile(): Promise<PackageJsonScripts> {
+    const filePath = `${process.cwd()}/${this.packageJsonFileString}`;
+    const file = readFileSync(filePath) as unknown as string;
+    return JSON.parse(file);
   }
 }
 
@@ -52,7 +138,7 @@ export class StylelintExtentions {
   }
 
   private _generateFileData(extentionsValues: string[]): string {
-    return JSON.stringify({ extends: extentionsValues });
+    return JSON.stringify({ extends: extentionsValues }, null, 2);
   }
 
   private async _createFile(fileData: string): Promise<void> {
