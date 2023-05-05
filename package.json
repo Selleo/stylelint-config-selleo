@@ -18,9 +18,9 @@
     "/oclif.manifest.json"
   ],
   "exports": {
-    "./bem": "./stylelint-config/bem/.stylelintrc.json",
-    "./core": "./stylelint-config/core/.stylelintrc.json",
-    "./sass": "./stylelint-config/sass/.stylelintrc.json"
+    "./bem": "./stylelint-config-selleo/bem/.stylelintrc.json",
+    "./core": "./stylelint-config-selleo/core/.stylelintrc.json",
+    "./sass": "./stylelint-config-selleo/sass/.stylelintrc.json"
   },
   "dependencies": {
     "@oclif/core": "^2",
