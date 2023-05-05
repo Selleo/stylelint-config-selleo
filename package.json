@@ -10,6 +10,7 @@
   "license": "MIT",
   "main": "dist/index.js",
   "repository": "Selleo/stylelint-config-selleo",
+  "preferGlobal": false,
   "files": [
     "/bin",
     "/dist",
