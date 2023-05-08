@@ -18,11 +18,15 @@ const extentions = [
 
 const fixScripts: Script[] = [
   {
-    name: "fix-all",
+    name: "stylelint-list",
+    value: "stylelint **/*.{scss,css}",
+  },
+  {
+    name: "stylelint-fix-all",
     value: "stylelint **/*.{scss,css} --fix",
   },
   {
-    name: "fix-current",
+    name: "stylelint-fix-current",
     value:
       "git diff origin/master --name-only  --diff-filter=AM -- '*.scss' '*.css' | tail | xargs -r stylelint --fix --quiet",
   },
@@ -41,16 +45,23 @@ export class Init extends Command {
           choices: extentions.map(({ name }) => name),
         },
         {
-          name: "fixAllScriptName",
+          name: "listScriptName",
           type: "input",
           default: fixScripts[0].name,
-          message: "Type script name that fixes all files",
+          message: "Type script name that lists all issues",
+        },
+        {
+          name: "fixAllScriptName",
+          type: "input",
+          default: fixScripts[1].name,
+          message: "Type script name that fixes all issues",
         },
         {
           name: "fixCurrentScriptName",
           type: "input",
-          default: fixScripts[1].name,
-          message: "Type script name that fixes currently changed files",
+          default: fixScripts[2].name,
+          message:
+            "Type script name that fixes issues for currently changed files",
         },
       ]);
 
