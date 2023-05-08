@@ -36,36 +36,41 @@ export class Init extends Command {
   static description = "Initialize the Stylelint Selleo Config";
 
   public async run(): Promise<void> {
-    const { selectedExtentions, fixAllScriptName, fixCurrentScriptName } =
-      await (inquirer as any).prompt([
-        {
-          name: "selectedExtentions",
-          type: "checkbox",
-          message: "Select extensions",
-          choices: extentions.map(({ name }) => name),
-        },
-        {
-          name: "listScriptName",
-          type: "input",
-          default: fixScripts[0].name,
-          message: "Type script name that lists all issues",
-        },
-        {
-          name: "fixAllScriptName",
-          type: "input",
-          default: fixScripts[1].name,
-          message: "Type script name that fixes all issues",
-        },
-        {
-          name: "fixCurrentScriptName",
-          type: "input",
-          default: fixScripts[2].name,
-          message:
-            "Type script name that fixes issues for currently changed files",
-        },
-      ]);
+    const {
+      selectedExtentions,
+      fixAllScriptName,
+      fixCurrentScriptName,
+      listScriptName,
+    } = await (inquirer as any).prompt([
+      {
+        name: "selectedExtentions",
+        type: "checkbox",
+        message: "Select extensions",
+        choices: extentions.map(({ name }) => name),
+      },
+      {
+        name: "listScriptName",
+        type: "input",
+        default: fixScripts[0].name,
+        message: "Type script name that lists all issues",
+      },
+      {
+        name: "fixAllScriptName",
+        type: "input",
+        default: fixScripts[1].name,
+        message: "Type script name that fixes all issues",
+      },
+      {
+        name: "fixCurrentScriptName",
+        type: "input",
+        default: fixScripts[2].name,
+        message:
+          "Type script name that fixes issues for currently changed files",
+      },
+    ]);
 
     PackageJsonLinterScripts.addScripts([
+      listScriptName,
       fixAllScriptName,
       fixCurrentScriptName,
     ]);
