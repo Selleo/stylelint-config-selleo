@@ -15,7 +15,10 @@
     "/bin",
     "/dist",
     "/npm-shrinkwrap.json",
-    "/oclif.manifest.json"
+    "/oclif.manifest.json",
+    "/stylelint-config-selleo/bem/.stylelintrc.json",
+    "/stylelint-config-selleo/core/.stylelintrc.json",
+    "/stylelint-config-selleo/sass/.stylelintrc.json"
   ],
   "exports": {
     "./bem": "./stylelint-config-selleo/bem/.stylelintrc.json",
