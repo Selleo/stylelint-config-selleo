@@ -8,8 +8,13 @@ Linter for styles, configurable with 3 variants:
 ## Installation
 
 ```
-npm i --save-dev stylelint
-npm i --save-dev https://github.com/Selleo/stylelint-config-selleo
+1) npm i --save-dev stylelint
+2) [] clone this repository
+   [] npm i 
+   [] npm run build
+   [] npm pack
+   [] npm i -g g '/path/to/stylelint-config-selleo.tgz` file
+
 ```
 
 ## Usage
@@ -21,14 +26,16 @@ Available extends:
 "stylelint-config-selleo/sass" - SASS files 
 ```
 
-Set your `stylelintrc.json` config to:
+In the root of your project directory:
+[] ```stylelint-config-selleo init"
+[] select appropriate extentions
+[] type (or select default) liter scripts names
 
-```json
-{
-  "extends": ["stylelint-config-selleo/core", "other_extend_which_you_want_to_use"]
-}
-```
+In your project root directory `.stylelint.json` file will appear with previously selected extentions.
+In `package.json` selected linter scripts will appear
 
+
+If you use `prettier`:
 Create or update existing `.prettierignore` following rule - ignore prettier for css, sccs and sass files - use stylelint by default
 ``` 
 **/*.css
