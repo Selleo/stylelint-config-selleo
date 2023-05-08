@@ -5,34 +5,33 @@ Linter for styles, configurable with 3 variants:
 * SASS syntax
 * BEM methodology
 
+Available extends: 
+- `"stylelint-config-selleo/core"` - CSS & SCSS files
+- `"stylelint-config-selleo/bem"` -  BEM ruleset
+- `"stylelint-config-selleo/sass"` - SASS files 
+
 ## Installation
+- `npm i --save-dev stylelint`
+- `clone this repository`
+- `npm i `
+- `npm run build`
+- `npm pack`
+- `npm i '/path/to/stylelint-config-selleo.tgz'` file
 
-```
-1) npm i --save-dev stylelint
-2) [] clone this repository
-   [] npm i 
-   [] npm run build
-   [] npm pack
-   [] npm i -g g '/path/to/stylelint-config-selleo.tgz` file
-
+In the `package.json`
+```json 
+  "scripts":{
+    "selleo-stylelint": "stylelint-config-selleo init"
+  }
 ```
 
 ## Usage
+- run `npm run selleo-stylelint"`
+- select appropriate extentions
+- type (or select default) liter scripts names
 
-Available extends: 
-```json
-"stylelint-config-selleo/core" - CSS & SCSS files
-"stylelint-config-selleo/bem" - BEM ruleset
-"stylelint-config-selleo/sass" - SASS files 
-```
-
-In the root of your project directory:
-[] ```stylelint-config-selleo init"
-[] select appropriate extentions
-[] type (or select default) liter scripts names
-
-In your project root directory `.stylelint.json` file will appear with previously selected extentions.
-In `package.json` selected linter scripts will appear
+In your project root directory `.stylelintrc.json` file will appear with previously selected extentions.
+In `package.json` selected linter scripts will appear.
 
 
 If you use `prettier`:
@@ -91,8 +90,8 @@ not work on file save, but you can instead run it by `Right Click > External Too
 2. 
 ```json
   "scripts": {
-    "stylelint-list": "stylelint **/*,*.{css,scss,sass}"
-    "stylelint-auto-fix": "stylelint **/*.{css,scss} --fix"
+    "stylelint-list": "stylelint **/*,*.{css,scss,sass}",
+    "stylelint-fix-all": "stylelint **/*.{css,scss} --fix"
   }
 ```
 2. Run it with npm
