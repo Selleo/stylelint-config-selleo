@@ -1,7 +1,6 @@
 import { Command } from "@oclif/core";
 import * as inquirer from "inquirer";
 import * as fs from "fs/promises";
-// import { readFileSync } from "fs";
 
 const extentions = [
   { name: "BEM", value: "bem" },
@@ -62,58 +61,3 @@ export class StylelintExtentions {
     await fs.writeFile(filePath, fileData);
   }
 }
-
-// type Script = {
-//   name: string;
-//   value: string;
-// };
-
-// type PackageJsonScripts = { scripts: { [key: string]: string } };
-
-// class PackageJsonLinterScripts {
-//   private readonly packageJsonFileString = "package.json";
-
-//   static addScripts(scriptsNames: string[]) {
-//     new PackageJsonLinterScripts(scriptsNames);
-//   }
-
-//   constructor(scriptsNames: string[]) {
-//     this._handleScripts(scriptsNames);
-//   }
-
-//   private async _handleScripts(scriptsNames: string[]): Promise<void> {
-//     const preparedScriptsData = this._prepareFixScriptsData(scriptsNames);
-//     const packageJson = await this._readFile();
-//     this._overwritePackageJsonScripts(preparedScriptsData, packageJson);
-//     await this._saveFileChanges(JSON.stringify(packageJson, null, 2));
-//   }
-
-//   private _overwritePackageJsonScripts(
-//     preparedScriptsData: Script[],
-//     packageJson: PackageJsonScripts
-//   ): void {
-//     preparedScriptsData.forEach(({ name, value }) => {
-//       packageJson.scripts[name] = value;
-//     });
-//   }
-
-//   private _prepareFixScriptsData(scriptsNames: string[]): Script[] {
-//     const preparedScriptsData = scriptsNames.map((scriptName, i) => {
-//       if (fixScripts[i].name === scriptName) return fixScripts[i];
-//       return { ...fixScripts[i], name: scriptName };
-//     });
-
-//     return preparedScriptsData;
-//   }
-
-//   private async _saveFileChanges(fileData: string): Promise<void> {
-//     const filePath = `${process.cwd()}/${this.packageJsonFileString}`;
-//     await fs.writeFile(filePath, fileData);
-//   }
-
-//   private async _readFile(): Promise<PackageJsonScripts> {
-//     const filePath = `${process.cwd()}/${this.packageJsonFileString}`;
-//     const file = readFileSync(filePath) as unknown as string;
-//     return JSON.parse(file);
-//   }
-// }
