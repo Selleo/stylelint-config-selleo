@@ -1,7 +1,7 @@
 # stylelint-config-selleo
 
 ## Node version
-Required Node.js version: `^18.0.0`
+Minimum Node.js version: `16`
 
 Linter for styles, configurable with 3 variants:
 * SCSS syntax
