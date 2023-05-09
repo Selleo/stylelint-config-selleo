@@ -349,16 +349,24 @@
     ],
     "scale-unlimited/declaration-strict-value": [[
       "background",
-      "background-color",
-      "color",
+      "/color$/",
+      "fill",
       "margin",
-      "padding"
+      "padding",
+      "stroke"
     ],
       {
-        "ignoreFunctions": {
-          "margin": false
-        }
-      }],
+        "ignoreValues": [
+          "0",
+          "auto",
+          "currentColor",
+          "/calc/",
+          "inherit",
+          "revert",
+          "transparent"
+        ]
+      }
+    ],
     "number-leading-zero": "never",
     "number-max-precision": 3
   }
