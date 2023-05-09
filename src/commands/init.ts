@@ -10,7 +10,8 @@ const extentions = [
 ];
 
 export class Init extends Command {
-  static description = "Initialize the Stylelint Selleo Config";
+  static description =
+    "Initialize the Stylelint Selleo Config by slectiong extentions";
 
   public async run(): Promise<void> {
     const { selectedExtentions } = await (inquirer as any).prompt([
