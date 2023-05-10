@@ -4,14 +4,9 @@
 Minimum Node.js version: `16`
 
 Linter for styles, configurable with 3 variants:
-* SCSS syntax
-* SASS syntax
+* CSS & SCSS syntax
 * BEM methodology
-
-Available extends: 
-- `"stylelint-config-selleo/core"` - CSS & SCSS files
-- `"stylelint-config-selleo/bem"` -  BEM ruleset
-- `"stylelint-config-selleo/sass"` - SASS files 
+* SASS syntax
 
 ## Installation
 - `npm i --save-dev stylelint`
@@ -30,10 +25,10 @@ In the `package.json`
 
 ## Usage
 - run `npm run stylelint-config-selleo init"`
-- select appropriate extentions
+- select appropriate extensions
 - type (or select default) liter scripts names
 
-In your project root directory `.stylelintrc.json` file will appear with previously selected extentions.
+In your project root directory `.stylelintrc.json` file will appear with previously selected extensions.
 In `package.json` selected linter scripts will appear.
 
 
@@ -93,7 +88,7 @@ not work on file save, but you can instead run it by `Right Click > External Too
 2. 
 ```json
   "scripts": {
-    "stylelint-list": "stylelint **/*,*.{css,scss,sass}",
+    "stylelint-list": "stylelint **/*.{css,scss,sass}",
     "stylelint-fix-all": "stylelint **/*.{css,scss} --fix"
   }
 ```
