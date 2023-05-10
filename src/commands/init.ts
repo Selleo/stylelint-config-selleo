@@ -3,21 +3,21 @@ import * as inquirer from "inquirer";
 import * as fs from "fs/promises";
 
 const extentions = [
+  { name: "CSS & SCSS", value: "core" },
   { name: "BEM", value: "bem" },
-  { name: "SCSS", value: "core" },
-  { name: "SASS", value: "scss" },
+  { name: "SASS", value: "sass" },
 ];
 
 export class Init extends Command {
   static description =
-    "Initialize the Stylelint Selleo Config by slectiong extentions";
+    "Initialize the Stylelint Selleo Config by selecting extensions";
 
   public async run(): Promise<void> {
     const { selectedExtentions } = await (inquirer as any).prompt([
       {
         name: "selectedExtentions",
         type: "checkbox",
-        message: "Select extensions",
+        message: "Welcome to Selleo Stylelint Config! Please select extensions:",
         choices: extentions.map(({ name }) => name),
       },
     ]);
