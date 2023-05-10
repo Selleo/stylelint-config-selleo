@@ -32,6 +32,23 @@ This will create a `.tgz` file that you need to link to in the target repository
 - select appropriate extensions
 - in your project root directory `.stylelintrc.json` file will appear with previously selected extensions
 
+---
+## CLI / CI Commands
+Run `npm run stylelint-config-selleo` to see all available commands
+Run `npm run stylelint-config-selleo [command]` to run a command
+```
+`init`           Initialize the Stylelint Selleo Config by selecting extensions
+`husky-init`     Init husky pre-commit check
+`check-all`      Check if some stylelint issues occur for all files
+`check-current`  Check if some stylelint issues occur for current changes
+`fix-all`        Run auto fix for all changed files
+`fix-current`    Run auto fix for currently changed files
+`list-all`       List all styles issues
+`list-current`   List styles issues for currently changed files
+`help`           Display help for stylelint-config-selleo
+```
+---
+
 If you use `prettier`:
 Create or update existing `.prettierignore` following rule - ignore prettier for css, sccs and sass files - use stylelint by default
 ``` 
@@ -84,16 +101,3 @@ not work on file save, but you can instead run it by `Right Click > External Too
 5. Set `Arguments` to `$FilePath$ --fix`
 6. Set `Working directory` to `$ProjectFileDir$`
 7. Save and Apply changes
-
----
-# CLI / CI
-Run `npm run stylelint-config-selleo` to see all available commands:
-```
-fix-all         Run auto fix for all changed files
-fix-current     Run auto fix for currently changed files
-help            Display help for stylelint-config-selleo.
-init            Initialize the Stylelint Selleo Config by selecting extensions
-list-all        List all styles issues
-list-current    List styles issues for currently changed files
-plugins         List installed plugins.
-```
