@@ -24,12 +24,12 @@ Available extends:
 In the `package.json`
 ```json 
   "scripts":{
-    "selleo-stylelint": "stylelint-config-selleo init"
+    "stylelint-config-selleo": "stylelint-config-selleo"
   }
 ```
 
 ## Usage
-- run `npm run selleo-stylelint"`
+- run `npm run stylelint-config-selleo init"`
 - select appropriate extentions
 - type (or select default) liter scripts names
 
