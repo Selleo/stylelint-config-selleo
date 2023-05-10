@@ -7,7 +7,7 @@ export default class CheckCurrent extends Command {
 
   public async run(): Promise<void> {
     const currenBranchCmd = `git branch  --no-color  | grep -E '^\*'`;
-    const listCurrentIssues = `git diff $(${currenBranchCmd}) --name-only  --diff-filter=AM -- '*.scss' '*.css' | tail | xargs -r stylelint`;
+    const listCurrentIssues = `git diff $(${currenBranchCmd}) --name-only  --diff-filter=AM -- '*.scss' '*.css' '*.sass | tail | xargs -r stylelint`;
 
     exec(listCurrentIssues, (error, stdout) => {
       console.error(stdout);

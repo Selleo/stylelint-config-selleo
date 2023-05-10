@@ -5,7 +5,7 @@ export default class CheckAll extends Command {
   static description = "Check if some stylelint issues occur for all files";
 
   public async run(): Promise<void> {
-    const listAllIssues = `stylelint **/*.{scss,css}`;
+    const listAllIssues = `stylelint **/*.{scss,css,sass}`;
 
     exec(listAllIssues, (error, stdout) => {
       console.error(stdout);
