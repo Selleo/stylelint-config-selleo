@@ -1,6 +1,7 @@
 import { Command } from "@oclif/core";
 import * as inquirer from "inquirer";
 import * as fs from "fs/promises";
+import { logAvailableCommands } from "../available-commands";
 
 const extensions = [
   { name: "CSS & SCSS", value: "core" },
@@ -24,6 +25,7 @@ export class Init extends Command {
     ]);
 
     StylelintExtensions.create(selectedExtensions);
+    logAvailableCommands();
   }
 }
 
