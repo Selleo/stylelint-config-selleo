@@ -2,7 +2,7 @@ import { Command } from "@oclif/core";
 import * as inquirer from "inquirer";
 import * as fs from "fs/promises";
 
-const extentions = [
+const extensions = [
   { name: "CSS & SCSS", value: "core" },
   { name: "BEM", value: "bem" },
   { name: "SASS", value: "sass" },
@@ -13,25 +13,26 @@ export class Init extends Command {
     "Initialize the Stylelint Selleo Config by selecting extensions";
 
   public async run(): Promise<void> {
-    const { selectedExtentions } = await (inquirer as any).prompt([
+    const { selectedExtensions } = await (inquirer as any).prompt([
       {
-        name: "selectedExtentions",
+        name: "selectedExtensions",
         type: "checkbox",
-        message: "Welcome to Selleo Stylelint Config! Please select extensions:",
-        choices: extentions.map(({ name }) => name),
+        message:
+          "Welcome to Selleo Stylelint Config! Please select extensions:",
+        choices: extensions.map(({ name }) => name),
       },
     ]);
 
-    StylelintExtentions.create(selectedExtentions);
+    StylelintExtensions.create(selectedExtensions);
   }
 }
 
-export class StylelintExtentions {
+export class StylelintExtensions {
   private readonly STYLELINT_CONFIG_SELLEO = `stylelint-config-selleo`;
   private readonly fileString = ".stylelintrc.json";
 
   static create(choices: string[]) {
-    new StylelintExtentions(choices);
+    new StylelintExtensions(choices);
   }
 
   constructor(choices: string[]) {
@@ -39,21 +40,21 @@ export class StylelintExtentions {
   }
 
   private async _handleConfigFile(choices: string[]) {
-    const extentionsValues = this._getExtentionsValues(choices);
-    const fileData = this._generateFileData(extentionsValues);
+    const extensionsValues = this._getExtensionsValues(choices);
+    const fileData = this._generateFileData(extensionsValues);
     await this._createFile(fileData);
   }
 
-  private _getExtentionsValues(choices: string[]): string[] {
-    const extentionsValues = extentions
+  private _getExtensionsValues(choices: string[]): string[] {
+    const extensionsValues = extensions
       .filter(({ name }) => choices.includes(name))
       .map(({ value }) => `${this.STYLELINT_CONFIG_SELLEO}/${value}`);
 
-    return extentionsValues;
+    return extensionsValues;
   }
 
-  private _generateFileData(extentionsValues: string[]): string {
-    return JSON.stringify({ extends: extentionsValues }, null, 2);
+  private _generateFileData(extensionsValues: string[]): string {
+    return JSON.stringify({ extends: extensionsValues }, null, 2);
   }
 
   private async _createFile(fileData: string): Promise<void> {
