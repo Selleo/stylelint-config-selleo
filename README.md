@@ -32,10 +32,18 @@ This will create a `.tgz` file that you need to link to in the target repository
 - select appropriate extensions
 - in your project root directory `.stylelintrc.json` file will appear with previously selected extensions
 
----
+If you use `prettier`:
+Create or update existing `.prettierignore` following rule - ignore prettier for css, sccs and sass files - use stylelint by default
+``` 
+**/*.css
+**/*.scss
+**/*.sass
+```
+
 ## CLI / CI Commands
-Run `npm run stylelint-config-selleo` to see all available commands
-Run `npm run stylelint-config-selleo [command]` to run a command
+Run `npm run stylelint-config-selleo` to see all available commands.
+
+Run `npm run stylelint-config-selleo [command]` to run a command.
 ```
 `init`           Initialize the Stylelint Selleo Config by selecting extensions
 `husky-init`     Init husky pre-commit check
@@ -47,15 +55,10 @@ Run `npm run stylelint-config-selleo [command]` to run a command
 `list-current`   List styles issues for currently changed files
 `help`           Display help for stylelint-config-selleo
 ```
----
 
-If you use `prettier`:
-Create or update existing `.prettierignore` following rule - ignore prettier for css, sccs and sass files - use stylelint by default
-``` 
-**/*.css
-**/*.scss
-**/*.sass
-```
+### Install pre-commit check
+- `npm i husky`
+- `npm run stylelint-config-selleo husky-init`
 
 ---
 # IDE setup
