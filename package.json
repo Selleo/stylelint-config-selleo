@@ -9,7 +9,7 @@
   "homepage": "https://github.com/Selleo/stylelint-config-selleo",
   "license": "MIT",
   "main": "dist/index.js",
-  "repository": "Selleo/stylelint-config-selleo",
+  "repository": "git@github.com:Selleo/stylelint-config-selleo.git",
   "preferGlobal": false,
   "files": [
     "/bin",
