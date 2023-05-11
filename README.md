@@ -8,19 +8,12 @@ Linter for styles, configurable with 3 variants:
 
 ---
 # Installation
-## This repo
-Minimum Node.js version: `16`
-
-- `clone this repository`
-- `npm i `
-- `npm run build`
-- `npm pack`
-
-This will create a `.tgz` file that you need to link to in the target repository.
-
 ## Target repo
+Minimum Node.js version: `16`
+---
+
 - `npm i --save-dev stylelint`
-- `npm i '/path/to/stylelint-config-selleo.tgz'` file
+- `npm i --save-dev stylelint-config-selleo`
 - in the `package.json` add:
   ```json 
     "scripts": {
