@@ -1,6 +1,6 @@
 {
   "name": "@selleo/stylelint-config-selleo",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Stylelint Config Selleo CLI",
   "author": "Selleo Team",
   "publishConfig": {
