@@ -1,11 +1,8 @@
 {
   "name": "@selleo/stylelint-config-selleo",
-  "version": "0.1.2",
+  "version": "0.1.9",
   "description": "Stylelint Config Selleo CLI",
   "author": "Selleo Team",
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
-  },
   "bin": {
     "stylelint-config-selleo": "./bin/run"
   },
