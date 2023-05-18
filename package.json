@@ -4,7 +4,7 @@
   "description": "Stylelint Config Selleo CLI",
   "author": "Selleo Team",
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
+    "@Selleo:registry": "https://npm.pkg.github.com"
   },
   "bin": {
     "stylelint-config-selleo": "./bin/run"
