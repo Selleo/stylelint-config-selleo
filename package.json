@@ -39,7 +39,7 @@
     "stylelint-scss": "4.3.0"
   },
   "devDependencies": {
-    "@oclif/test": "^2.3.17",
+    "@oclif/test": "^2.3.31",
     "@types/chai": "^4",
     "@types/inquirer": "^9.0.3",
     "@types/mocha": "^9.0.0",
